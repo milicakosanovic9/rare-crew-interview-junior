@@ -1,0 +1,94 @@
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+thead {
+  background-color: #e8e8e8;
+}
+
+th {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ccc;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.low-hours {
+  background-color: #ffcccc;
+}
+
+.low-hours:hover {
+  background-color: #ffb3b3;
+}
+
+.edit-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+.chart-container {
+  margin: 50px auto;
+  max-width: 600px;
+  text-align: center;
+  padding: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
