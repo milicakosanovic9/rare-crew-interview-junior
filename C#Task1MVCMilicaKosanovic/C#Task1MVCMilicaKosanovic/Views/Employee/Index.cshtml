@@ -1,0 +1,123 @@
+﻿@model C_Task1MVCMilicaKosanovic.Models.EmployeeTotalViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Time Report</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid black;
+            margin-bottom: 30px;
+        }
+
+        th {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .low-hours {
+            background-color: red;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            border: 1px solid red;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .btn-download:hover {
+                background-color: darkgreen;
+            }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Time Report</h1>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error">
+                <strong>Error:</strong> @ViewBag.Error
+            </div>
+        }
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Total Time Worked (hours)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr class="@(employee.IsLowHours ? "low-hours" : "")">
+                        <td>@employee.Name</td>
+                        <td><strong>@employee.TotalHours.ToString("F2")</strong></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="@Url.Action("GeneratePieChart", "Employee")"
+               class="btn-download"
+               download="employee_pie_chart.png">
+                📥 Download PIE Chart (PNG)
+            </a>
+        </div>
+
+        <div class="chart-container">
+            <h2>Time Distribution Chart</h2>
+            <img src="@Url.Action("GetPieChartImage", "Employee")"
+                 alt="Employee Pie Chart"
+                 style="max-width: 100%; border: 1px solid #ccc;" />
+        </div>
+
+    </div>
+</body>
+</html>
